@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventView_Creator">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="368dp"
+        android:layout_height="440dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/name_header"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Название"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Category_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Категория"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="TextView"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/Category"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:enabled="false"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Date_header"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Дата"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Time_header"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Время"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Count_header"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Кол-во мест"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="TextView"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="TextView"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/Count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="TextView"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Adress_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Адрес мероприятия"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/Adress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="TextView"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/Comment"
+            android:layout_width="match_parent"
+            android:layout_height="202dp"
+            android:ems="10"
+            android:enabled="false"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/Members"
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:layout_weight="1"
+            android:onClick="ViewMembers"
+            android:text="Открыть список участников" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.938">
+
+        <Button
+            android:id="@+id/Delete"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="Delete"
+            android:text="Удалить" />
+
+        <Button
+            android:id="@+id/Edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Редактировать" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
