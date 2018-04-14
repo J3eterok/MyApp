@@ -69,6 +69,10 @@ public class Offer extends AppCompatActivity implements SeekBar.OnSeekBarChangeL
         Comment = findViewById(R.id.Comment);
         Date = findViewById(R.id.Date);
         Time = findViewById(R.id.Time);
+
+        //Запуск окна с карточками для отладки(после работы убрать)
+        Intent intent = new Intent(this, Card_Search_View.class);
+        startActivity(intent);
     }
 
     public void onclickDate(View view) {
