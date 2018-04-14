@@ -22,8 +22,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".EventView_Creator" />
-
-        <activity android:name=".EventView_Subscriber"></activity>
+        <activity android:name=".EventView_Subscriber" />
+        <activity android:name=".Search"></activity>
     </application>
 
 </manifest>

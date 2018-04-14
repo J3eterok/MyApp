@@ -16,7 +16,7 @@ public class EventView_Creator extends AppCompatActivity {
     EditText Comment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedIns tanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_view__creator);
 
