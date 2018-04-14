@@ -18,7 +18,7 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-
+//puf
 public class Offer extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
 
     private String[] Categories = {"Спорт", "Отдых", "Оккультизм"};//Массив категорий выпадающего списка
