@@ -30,8 +30,8 @@ class MyCategory {
     public String firstName;
     public String lastName;
     public String email;
-    public Object [][] myEvents;
-    public Object [][] futureEvents;
+    public Object [] myEvents;
+    public Object [] futureEvents;
 }
 
 public class Search extends AppCompatActivity {
@@ -196,14 +196,12 @@ public class Search extends AppCompatActivity {
             super.onPostExecute(result);
             Toast.makeText(getBaseContext(), "Hello", Toast.LENGTH_LONG).show();
             Gson gson = new Gson();
-            MyCategory mycat = new MyCategory();
-            mycat.firstName = "Roman";
-            mycat.lastName = "Asadov";
-            mycat.email = "roma@mail.ru";
-            mycat.id = 1;
-            String json = gson.toJson(mycat);
-            MyCategory cat = gson.fromJson(json, MyCategory.class);
-            cityField.setText(conn.resultString);
+            String res = conn.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
+            res = res.replace("{\"response\":\"{", "{"); //убираем лишнее слово response
+            res = res.replace("}\"}", "}"); // меняем конец ответа, чтобы тоже не был лишним
+            MyCategory cat = gson.fromJson(res, MyCategory.class);
+            cityField.setText(cat.firstName);
+            dateField.setText(cat.lastName);
         }
     }
 }
