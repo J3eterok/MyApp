@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +22,17 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.Executor;
+
+
+class MyCategory {
+    public int id;
+    public String firstName;
+    public String lastName;
+    public String email;
+    public Object [][] myEvents;
+    public Object [][] futureEvents;
+}
 
 public class Search extends AppCompatActivity {
     String[] data = {"спорт", "концерты", "развлечения", "прогулка", "другое"};
@@ -32,7 +45,7 @@ public class Search extends AppCompatActivity {
     Button button;
     EditText cityField;
     EditText dateField;
-    HttpURLConnection conn;
+    SendData conn;
 
     /** Called when the activity is first created. */
 
@@ -46,6 +59,8 @@ public class Search extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
         cityField = (EditText) findViewById(R.id.editText);
         dateField = (EditText) findViewById(R.id.editText2);
+       // SendData conn = new SendData();
+       // conn.execute();
         // адаптер
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -60,17 +75,30 @@ public class Search extends AppCompatActivity {
         View.OnClickListener search = new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (cityField.getText().toString() == ""){
-                    Toast.makeText(getBaseContext(), "Введите Город.", Toast.LENGTH_LONG);
+                if (cityField.getText().toString().equals("")){
+                    Toast.makeText(getBaseContext(), "Введите Город.", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if(dateField.getText().toString().equals("")){
+                    Toast.makeText(getBaseContext(), "Введите дату.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                conn = new SendData();
+                conn.server = "http://193.105.65.66:1080/~h2oop/?iteam.getUser={\"id\":\"1\"}";
+                try {
+                    conn.execute();
+                }catch(Exception e) {
+                }
+
             }
         };
+        button.setOnClickListener(search);
     }
 
     class SendData extends AsyncTask<Void, Void, Void> {
 
         String resultString = null;
+        public String server;
 
         @Override
         protected void onPreExecute() {
@@ -78,10 +106,10 @@ public class Search extends AppCompatActivity {
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void  doInBackground(Void... params) {
             try {
 
-                String myURL = "http://10.0.2.2:8000/api/?iteam.search={\"city\":\""+cityField.getText()+"\",\"datetime\":\""+cityField.getText()+"\"}";
+               String myURL = server;
 
                 String parammetrs = " ";
                 byte[] data = null;
@@ -90,7 +118,7 @@ public class Search extends AppCompatActivity {
 
 
                 try {
-                    URL url = new URL(myURL);
+                    URL url = new URL(server);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setReadTimeout(10000);
                     conn.setConnectTimeout(15000);
@@ -149,19 +177,33 @@ public class Search extends AppCompatActivity {
 
                 } catch (MalformedURLException e) {
 
-                    //resultString = "MalformedURLException:" + e.getMessage();
+                    resultString = "MalformedURLException:" + e.getMessage();
                 } catch (IOException e) {
 
-                    //resultString = "IOException:" + e.getMessage();
+                   resultString = "IOException:" + e.getMessage();
                 } catch (Exception e) {
 
-                    //resultString = "Exception:" + e.getMessage();
+                    resultString = "Exception:" + e.getMessage();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
         }
-
+        @Override
+        protected void onPostExecute(Void result)
+        {
+            super.onPostExecute(result);
+            Toast.makeText(getBaseContext(), "Hello", Toast.LENGTH_LONG).show();
+            Gson gson = new Gson();
+            MyCategory mycat = new MyCategory();
+            mycat.firstName = "Roman";
+            mycat.lastName = "Asadov";
+            mycat.email = "roma@mail.ru";
+            mycat.id = 1;
+            String json = gson.toJson(mycat);
+            MyCategory cat = gson.fromJson(json, MyCategory.class);
+            cityField.setText(conn.resultString);
+        }
     }
 }
