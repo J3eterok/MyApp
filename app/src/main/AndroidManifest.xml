@@ -29,6 +29,7 @@
                 <category android:name="androind.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".Card_Search_View"></activity>
     </application>
 
 </manifest>
