@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-//g
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +25,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-//puf
+
 public class Offer extends AppCompatActivity {
 
     private String[] Categories = {"Спорт", "Отдых", "Оккультизм"};//Массив категорий выпадающего списка
@@ -66,8 +65,8 @@ public class Offer extends AppCompatActivity {
         Date = findViewById(R.id.Date);
 
         //Запуск окна с карточками для отладки(после работы убрать)
-        //Intent intent = new Intent(this, Card_Search_View.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, Card_Search_View.class);
+        startActivity(intent);
     }
 
     public void onclickDate(View view) {
@@ -105,7 +104,7 @@ public class Offer extends AppCompatActivity {
         /*ToDo: Отправление запроса на сервер с проверкой введенных данных*/
 
         // Переход на страницу с созданным мероприятием(Вид от создателя)
-        Intent intent = new Intent(this, EventView_Creator.class);
+        /*Intent intent = new Intent(this, EventView_Creator.class);
         startActivity(intent);
         MyEvent event = new MyEvent();
         event.city = City.getText().toString();
@@ -122,7 +121,7 @@ public class Offer extends AppCompatActivity {
         sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.createEvent="+json;
         sender.execute();
        // Intent intent = new Intent(this, EventView_Creator.class);
-        //startActivity(intent);
+        //startActivity(intent);*/
     }
 
     class SendData extends AsyncTask<Void, Void, Void> {
