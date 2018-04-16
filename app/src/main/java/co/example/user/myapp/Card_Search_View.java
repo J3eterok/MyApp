@@ -32,9 +32,6 @@ public class Card_Search_View extends AppCompatActivity {
             LinearLayout.LayoutParams Event_Layout = new LinearLayout.LayoutParams(wrapContent, matchParent);
             Event_Layout.gravity = Gravity.CENTER;
 
-
-            //LinearLayout.LayoutParams Event_inner = new LinearLayout.LayoutParams(wrapContent, wrapContent);
-
             TextView name = new TextView(this);
             name.setText(name_text);
             name.setTextColor(Color.parseColor("#000000"));
