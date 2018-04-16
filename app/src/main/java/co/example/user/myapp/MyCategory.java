@@ -6,4 +6,5 @@ package co.example.user.myapp;
 
 public class MyCategory {
     public String name;
+    public int id;
 }

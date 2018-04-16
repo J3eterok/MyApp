@@ -24,10 +24,10 @@
         <activity android:name=".EventView_Creator" />
         <activity android:name=".EventView_Subscriber" />
         <activity android:name=".Search">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="androind.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="androind.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".Card_Search_View"></activity>
     </application>

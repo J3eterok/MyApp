@@ -210,9 +210,9 @@ public class Search extends AppCompatActivity {
                 String res = conn.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
                 res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
                 res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был лишним
-                Gson gson = new Gson();
-                MyEvent[] events = gson.fromJson(res, MyEvent[].class);
-                //Intent intent = new Intent(this)
+                Intent intent = new Intent(getBaseContext(), Card_Search_View.class);
+                intent.putExtra("json", res);
+                startActivity(intent);
             }else if(conn.result == 0){
 
             }
