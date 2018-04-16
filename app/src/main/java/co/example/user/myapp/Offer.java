@@ -2,7 +2,6 @@ package co.example.user.myapp;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -11,10 +10,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -71,15 +68,13 @@ public class Offer extends AppCompatActivity {
         //Запуск окна с карточками для отладки(после работы убрать)
         //Intent intent = new Intent(this, Card_Search_View.class);
         //startActivity(intent);
-//        Intent intent = new Intent(this, Card_Search_View.class);
-//        startActivity(intent);
     }
 
     public void onclickDate(View view) {
         showDialog(DIALOG_DATE);
     }
 
-    // Метод для выбора даты в форме диалога
+    // Метод для выбора даты и времени в форме диалога
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_DATE) {
             DatePickerDialog tpd = new DatePickerDialog(this, myCallBackDate, myYear, myMonth, myDay);
