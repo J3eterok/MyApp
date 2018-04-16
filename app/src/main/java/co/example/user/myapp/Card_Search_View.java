@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class Card_Search_View extends AppCompatActivity {
@@ -26,35 +28,40 @@ public class Card_Search_View extends AppCompatActivity {
         String category_text = "Категория";
         LinearLayout Main = findViewById(R.id.main_content);
 
-        int n = 3; // Кол-во мероприятий, найденных при поиске
 
-        for (int i = 0; i < n; i++) {
-            LinearLayout.LayoutParams Event_Layout = new LinearLayout.LayoutParams(wrapContent, matchParent);
-            Event_Layout.gravity = Gravity.CENTER;
-
-            TextView name = new TextView(this);
-            name.setText(name_text);
-            name.setTextColor(Color.parseColor("#000000"));
-            name.setBackgroundResource(R.drawable.border);
-            name.setOnClickListener(OpenEvent);
-            Main.addView(name, Event_Layout);
-
-            TextView time = new TextView(this);
-            time.setText(time_text);
-            time.setTextColor(Color.parseColor("#000000"));
-            Main.addView(time, Event_Layout);
-
-            TextView adress = new TextView(this);
-            adress.setText(adress_text);
-            adress.setTextColor(Color.parseColor("#000000"));
-            Main.addView(adress, Event_Layout);
-
-            TextView category = new TextView(this);
-            category.setText(category_text);
-            category.setTextColor(Color.parseColor("#000000"));
-            category.setPadding(0, 0, 0, 30);
-            Main.addView(category, Event_Layout);
-        }
+        String json = getIntent().getStringExtra("json");
+        Gson gson = new Gson();
+        MyEvent[] events = gson.fromJson(json, MyEvent[].class);
+//        for(MyEvent event:events) {
+//            LinearLayout.LayoutParams Event_Layout = new LinearLayout.LayoutParams(wrapContent, matchParent);
+//            Event_Layout.gravity = Gravity.CENTER;
+//
+//
+//            //LinearLayout.LayoutParams Event_inner = new LinearLayout.LayoutParams(wrapContent, wrapContent);
+//
+//            TextView name = new TextView(this);
+//            name.setText(event.name);
+//            name.setTextColor(Color.parseColor("#000000"));
+//            name.setBackgroundResource(R.drawable.border);
+//            name.setOnClickListener(OpenEvent);
+//            Main.addView(name, Event_Layout);
+//
+//            TextView time = new TextView(this);
+//            time.setText(event.datetime);
+//            time.setTextColor(Color.parseColor("#000000"));
+//            Main.addView(time, Event_Layout);
+//
+//            TextView adress = new TextView(this);
+//            adress.setText(event.city);
+//            adress.setTextColor(Color.parseColor("#000000"));
+//            Main.addView(adress, Event_Layout);
+//
+//            TextView category = new TextView(this);
+//            category.setText(event.comment);
+//            category.setTextColor(Color.parseColor("#000000"));
+//            category.setPadding(0, 0, 0, 30);
+//            Main.addView(category, Event_Layout);
+//        }
     }
 
     View.OnClickListener OpenEvent = new View.OnClickListener() {
