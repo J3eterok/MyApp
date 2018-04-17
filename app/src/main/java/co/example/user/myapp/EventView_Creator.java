@@ -33,7 +33,7 @@ public class EventView_Creator extends AppCompatActivity {
     EditText Address;
     private MyEvent receivedEvent = null;
     //ToDo: вместо eventId = 3 нужно передать параметр нажатого мероприятия
-    private int eventId = 3;
+    private int eventId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,6 @@ public class EventView_Creator extends AppCompatActivity {
         Comment = findViewById(R.id.Comment);
         Edit.setOnClickListener(EditEvent);
         Category = findViewById(R.id.Category);
-        Address = findViewById(R.id.Adress);
         Date = findViewById(R.id.Date);
         Name.setText(receivedEvent.name);
         Comment.setText(receivedEvent.comment);
@@ -107,7 +106,6 @@ public class EventView_Creator extends AppCompatActivity {
             receivedEvent.datetime = Date.getText().toString();
             receivedEvent.name = Name.getText().toString();
             receivedEvent.comment = Comment.getText().toString();
-            receivedEvent.address = Address.getText().toString();
             receivedEvent.comment = receivedEvent.comment.replace(" ", "%20");
             Edit.setText("Редактировать");
             Edit.setOnClickListener(EditEvent);

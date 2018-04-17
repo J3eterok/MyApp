@@ -11,8 +11,8 @@ public class MyEvent {
     public String datetime;
     public String coord;
     public String comment;
-    public Object creator;
     public Object[] members;
+    public Object creator;
     public String address;
     public Object category;
 }

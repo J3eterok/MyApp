@@ -1,5 +1,6 @@
 package co.example.user.myapp;
 
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ public class CARD_Adapter extends RecyclerView.Adapter<CARD_Adapter.PersonViewHo
         TextView eventTime;
         TextView eventAdress;
         TextView eventCategory;
+        TextView eventId;
 
         PersonViewHolder(View itemView) {
             super(itemView);
@@ -27,6 +29,7 @@ public class CARD_Adapter extends RecyclerView.Adapter<CARD_Adapter.PersonViewHo
             eventTime = itemView.findViewById(R.id.eventTime);
             eventAdress = itemView.findViewById(R.id.eventAdress);
             eventCategory = itemView.findViewById(R.id.eventCategory);
+            eventId = itemView.findViewById(R.id.eventId);
         }
     }
 
@@ -54,6 +57,7 @@ public class CARD_Adapter extends RecyclerView.Adapter<CARD_Adapter.PersonViewHo
         personViewHolder.eventTime.setText(events.get(i).time);
         personViewHolder.eventAdress.setText(events.get(i).adress);
         personViewHolder.eventCategory.setText(events.get(i).category);
+        personViewHolder.eventId.setText(events.get(i).id);
     }
 
     @Override
