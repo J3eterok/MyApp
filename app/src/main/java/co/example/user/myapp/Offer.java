@@ -104,7 +104,7 @@ public class Offer extends AppCompatActivity {
         /*ToDo: Отправление запроса на сервер с проверкой введенных данных*/
 
         // Переход на страницу с созданным мероприятием(Вид от создателя)
-        /*Intent intent = new Intent(this, EventView_Creator.class);
+        Intent intent = new Intent(this, EventView_Creator.class);
         startActivity(intent);
         MyEvent event = new MyEvent();
         event.city = City.getText().toString();
@@ -121,7 +121,7 @@ public class Offer extends AppCompatActivity {
         sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.createEvent="+json;
         sender.execute();
        // Intent intent = new Intent(this, EventView_Creator.class);
-        //startActivity(intent);*/
+        //startActivity(intent);
     }
 
     class SendData extends AsyncTask<Void, Void, Void> {

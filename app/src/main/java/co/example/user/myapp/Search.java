@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class Search extends AppCompatActivity {
 
 
     TextView tV;
-    Button button;
+    ImageButton button;
     EditText cityField;
     EditText dateField;
     SendData conn;
@@ -45,8 +46,8 @@ public class Search extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         // найдем View-элементы
-        tV= (TextView) findViewById(R.id.tV);
-        button = (Button) findViewById(R.id.button);
+        tV= (TextView) findViewById(R.id.textView2);
+        button = (ImageButton) findViewById(R.id.icon2);
         cityField = (EditText) findViewById(R.id.editText);
         dateField = (EditText) findViewById(R.id.editText2);
         SendData sender = new SendData();
@@ -62,28 +63,28 @@ public class Search extends AppCompatActivity {
 
             }
         }
-        final Gson gson = new Gson();
-//        if(sender.resultString != null) {
-//            String res = sender.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
-//            res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
-//            res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был
-//            MyCategory[] cat = gson.fromJson(res, MyCategory[].class);
-//            int i = 0;
-//            data = new String[cat.length];
-//            for (MyCategory myCat: cat) {
-//                data[i] = myCat.name;
-//                i++;
-//            }
-//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//
-//            Spinner spinner = (Spinner) findViewById(R.id.spinner);
-//            spinner.setAdapter(adapter);
-//            // заголовок
-//            spinner.setPrompt("Title");
-//            // выделяем элемент
-////            spinner.setSelection(4);
-//        }
+         Gson gson = new Gson();
+        if(sender.resultString != null) {
+            String res = sender.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
+            res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
+            res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был
+            MyCategory[] cat = gson.fromJson(res, MyCategory[].class);
+            int i = 0;
+            data = new String[cat.length];
+            for (MyCategory myCat: cat) {
+                data[i] = myCat.name;
+                i++;
+            }
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            Spinner spinner = (Spinner) findViewById(R.id.spinner);
+            spinner.setAdapter(adapter);
+            // заголовок
+            spinner.setPrompt("Title");
+            // выделяем элемент
+//            spinner.setSelection(4);
+        }
 
         View.OnClickListener search = new View.OnClickListener(){
             @Override
@@ -99,6 +100,7 @@ public class Search extends AppCompatActivity {
                 Spinner spinner = (Spinner) findViewById(R.id.spinner);
                 conn = new SendData();
                 conn.result = 1;
+                Gson gson = new Gson();
                 SearchEntity searchObj = new SearchEntity(cityField.getText().toString(), dateField.getText().toString(),
                         (int)spinner.getSelectedItemId()+1);
                 String json = gson.toJson(searchObj);

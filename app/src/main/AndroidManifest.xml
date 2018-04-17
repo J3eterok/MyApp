@@ -39,6 +39,7 @@
         <activity android:name=".Card_Search_View"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".RecyclerViewActivity" />
+        <activity android:name=".TestEvent" />
         <activity android:name=".FutureEvent"></activity>
     </application>
 
