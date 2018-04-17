@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,7 @@ public class Search extends AppCompatActivity {
 
 
     TextView tV;
-    Button button;
+    ImageButton button;
     EditText cityField;
     EditText dateField;
     SendData conn;
@@ -55,8 +56,8 @@ public class Search extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         // найдем View-элементы
-        tV= (TextView) findViewById(R.id.tV);
-        button = (Button) findViewById(R.id.button);
+        tV= (TextView) findViewById(R.id.textView2);
+        button = (ImageButton) findViewById(R.id.icon2);
         cityField = (EditText) findViewById(R.id.editText);
         dateField = (EditText) findViewById(R.id.editText2);
        // SendData conn = new SendData();
