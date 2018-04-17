@@ -22,11 +22,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/name_header"
-                android:layout_width="74dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Название"
@@ -34,115 +34,15 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/Category_header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Категория"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/Name"
-                android:textColor="@drawable/ic_launcher_background"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:enabled="false"
                 android:text="TextView"
                 android:textAlignment="center" />
 
-            <EditText
-                android:id="@+id/Category"
-                android:textColor="@drawable/ic_launcher_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="TextView"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/Date_header"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Дата"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/Time_header"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Время"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/Count_header"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Кол-во мест"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/Date"
-                android:textColor="@drawable/ic_launcher_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="TextView"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/Time"
-                android:textColor="@drawable/ic_launcher_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="TextView"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/Count"
-                android:textColor="@drawable/ic_launcher_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="TextView"
-                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -151,18 +51,43 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/Adress_header"
+                android:id="@+id/Category_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Адрес мероприятия"
+                android:text="Категория"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/Adress"
-                android:textColor="@drawable/ic_launcher_background"
+                android:id="@+id/Category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="TextView"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Date_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Дата"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/Date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -174,7 +99,6 @@
 
         <EditText
             android:id="@+id/Comment"
-            android:textColor="@drawable/ic_launcher_background"
             android:layout_width="match_parent"
             android:layout_height="151dp"
             android:ems="10"

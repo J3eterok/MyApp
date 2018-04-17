@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="co.example.user.myapp">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
@@ -19,6 +20,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+<<<<<<< HEAD
         <activity android:name=".EventView_Creator" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -33,6 +35,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Card_Search_View"/>
+=======
+        <activity android:name=".EventView_Creator" />
+        <activity android:name=".EventView_Subscriber" />
+        <activity android:name=".Card_Search_View"></activity>
+>>>>>>> origin
     </application>
 
 </manifest>

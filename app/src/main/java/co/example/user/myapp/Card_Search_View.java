@@ -1,34 +1,57 @@
 package co.example.user.myapp;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class Card_Search_View extends AppCompatActivity {
 
-    int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
-    int matchParent = LinearLayout.LayoutParams.MATCH_PARENT;
+    public class Event { // Класс, описывающий событие
+        String name, time, adress, category;
+
+        Event(String name, String time, String adress, String category) {
+            this.name = name;
+            this.time = time;
+            this.adress = adress;
+            this.category = category;
+        }
+    }
+
+    private List<Event> events;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card__search__view);
-        //ToDo: Реализовать запрос с целью получения данных о мероприятии(Название, время, место, категория)
-        String name_text = "Название мероприятия";
-        String time_text = "Время";
-        String adress_text = "Адрес";
-        String category_text = "Категория";
-        LinearLayout Main = findViewById(R.id.main_content);
 
+        RecyclerView cards = (RecyclerView)findViewById(R.id.rv);
+        LinearLayoutManager mngr = new LinearLayoutManager(this);
+        cards.setLayoutManager(mngr);
+
+        events = new ArrayList<>();
+
+        int n=6;//кол-во мероприятий
+
+        //ToDo: Реализовать запрос с целью получения данных о мероприятии(Название, время, место, категория)
+
+        for(int i=0; i<n;i++)
+        {
+            events.add(new Event("Playing bingo with my grandpa", "1.06.2018", "Kazan", "Intelligence games"));// Подставить параметры мероприятия
+        }
+
+        CARD_Adapter adapter = new CARD_Adapter(events);
+        cards.setAdapter(adapter);
 
         String json = getIntent().getStringExtra("json");
         Gson gson = new Gson();
@@ -72,10 +95,9 @@ public class Card_Search_View extends AppCompatActivity {
         }
     }
 
-    View.OnClickListener OpenEvent = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //ToDO: открытие мероприятия
-        }
-    };
+    public void ShowEvent(View view) //Метод открытия карточки
+    {
+        Intent intent = new Intent(this, EventView_Subscriber.class);
+        startActivity(intent);
+    }
 }
