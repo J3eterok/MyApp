@@ -36,7 +36,7 @@ public class Card_Search_View extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card__search__view);
 
-        RecyclerView cards = (RecyclerView)findViewById(R.id.rv);
+        RecyclerView cards = (RecyclerView) findViewById(R.id.rv);
         LinearLayoutManager mngr = new LinearLayoutManager(this);
         cards.setLayoutManager(mngr);
 
@@ -47,23 +47,21 @@ public class Card_Search_View extends AppCompatActivity {
         Gson gson = new Gson();
         MyEvent[] arrayEvents = null;
         try {
-            arrayEvents= gson.fromJson(json, MyEvent[].class);
-        }catch(Exception e)
-        {
+            arrayEvents = gson.fromJson(json, MyEvent[].class);
+        } catch (Exception e) {
             Toast.makeText(getBaseContext(), "Мероприятия не найдены.", Toast.LENGTH_LONG).show();
             return;
         }
         //ToDo: Реализовать запрос с целью получения данных о мероприятии(Название, время, место, категория)
 
-        for(MyEvent event: arrayEvents)
-        {
+        for (MyEvent event : arrayEvents) {
             String myId = "" + event.id;
-            events.add(new Event(myId,event.name, event.datetime, event.city, event.category.toString()));// Подставить параметры мероприятия
+            events.add(new Event(myId, event.name, event.datetime, event.city, event.category.toString()));// Подставить параметры мероприятия
         }
 
         CARD_Adapter adapter = new CARD_Adapter(events);
         cards.setAdapter(adapter);
-
+    }
 //        String json = getIntent().getStringExtra("json");
 //        Gson gson = new Gson();
 //        MyEvent[] events = null;
@@ -74,6 +72,7 @@ public class Card_Search_View extends AppCompatActivity {
 //            Toast.makeText(getBaseContext(), "Мероприятия не найдены.", Toast.LENGTH_LONG).show();
 //            return;
 //        }
+
 //        for(MyEvent event:events) {
 //            LinearLayout.LayoutParams Event_Layout = new LinearLayout.LayoutParams(wrapContent, matchParent);
 //            Event_Layout.gravity = Gravity.CENTER;
@@ -104,7 +103,6 @@ public class Card_Search_View extends AppCompatActivity {
 //            category.setPadding(0, 0, 0, 30);
 //            Main.addView(category, Event_Layout);
 //        }
-   }
 
     public void ShowEvent(View view) //Метод открытия карточки
     {
