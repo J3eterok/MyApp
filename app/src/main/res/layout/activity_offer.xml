@@ -7,7 +7,7 @@
     android:background="@drawable/angle"
     tools:context=".Offer">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/lay1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,12 +26,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/relativeLayout5">
 
             <EditText
                 android:id="@+id/Name"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="start"
@@ -43,7 +44,7 @@
             <EditText
                 android:id="@+id/City"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/Name"
                 android:layout_marginTop="1dp"
@@ -99,37 +100,33 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
+        <EditText
+            android:id="@+id/comment"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="-30dp"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/relativeLayout5"
+            android:layout_marginTop="13dp"
             android:layout_weight="1"
-            android:background="@drawable/comment">
-
-            <EditText
-                android:id="@+id/comment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_weight="1"
-                android:ems="10"
-                android:gravity="start"
-                android:hint="Добавьте описание (не менее 30 символов)"
-                android:inputType="textMultiLine"
-                android:textColorHint="@color/black" />
-        </RelativeLayout>
+            android:background="@drawable/comment"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="Добавьте описание (не менее 30 символов)"
+            android:inputType="textMultiLine"
+            android:textColorHint="@color/black" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/bar"
             android:onClick="Create"
             android:text="Создать"
             android:textColorLink="@color/black" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
