@@ -25,18 +25,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.Executor;
 
-
-class MyCategory {
-    public int id;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public Object [][] myEvents;
-    public Object [][] futureEvents;
-}
-
 public class Search extends AppCompatActivity {
-    String[] data = {"спорт", "концерты", "развлечения", "прогулка", "другое"};
+    String[] data = {};
 
     /** Called when the activity is first created. */
 
@@ -60,18 +50,41 @@ public class Search extends AppCompatActivity {
         button = (ImageButton) findViewById(R.id.icon2);
         cityField = (EditText) findViewById(R.id.editText);
         dateField = (EditText) findViewById(R.id.editText2);
-       // SendData conn = new SendData();
-       // conn.execute();
-        // адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        SendData sender = new SendData();
+        sender.result = 0; // указываем сендеру, что делаем запрос категорий
+        sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.getCategories={}";
+        sender.execute();
+        while(sender.resultString == null){
+            try{
+                wait(1);
+            }
+            catch(Exception e)
+            {
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setAdapter(adapter);
-        // заголовок
-        spinner.setPrompt("Title");
-        // выделяем элемент
-        spinner.setSelection(4);
+            }
+        }
+         Gson gson = new Gson();
+        if(sender.resultString != null) {
+            String res = sender.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
+            res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
+            res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был
+            MyCategory[] cat = gson.fromJson(res, MyCategory[].class);
+            int i = 0;
+            data = new String[cat.length];
+            for (MyCategory myCat: cat) {
+                data[i] = myCat.name;
+                i++;
+            }
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            Spinner spinner = (Spinner) findViewById(R.id.spinner);
+            spinner.setAdapter(adapter);
+            // заголовок
+            spinner.setPrompt("Title");
+            // выделяем элемент
+//            spinner.setSelection(4);
+        }
 
         View.OnClickListener search = new View.OnClickListener(){
             @Override
@@ -84,8 +97,14 @@ public class Search extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Введите дату.", Toast.LENGTH_LONG).show();
                     return;
                 }
+                Spinner spinner = (Spinner) findViewById(R.id.spinner);
                 conn = new SendData();
-                conn.server = "http://193.105.65.66:1080/~h2oop/?iteam.getUser={\"id\":\"1\"}";
+                conn.result = 1;
+                Gson gson = new Gson();
+                SearchEntity searchObj = new SearchEntity(cityField.getText().toString(), dateField.getText().toString(),
+                        (int)spinner.getSelectedItemId()+1);
+                String json = gson.toJson(searchObj);
+                conn.server = "http://193.105.65.66:1080/~h2oop/?iteam.search=" + json;
                 try {
                     conn.execute();
                 }catch(Exception e) {
@@ -100,6 +119,7 @@ public class Search extends AppCompatActivity {
 
         String resultString = null;
         public String server;
+        public int result = 0;
 
         @Override
         protected void onPreExecute() {
@@ -192,19 +212,18 @@ public class Search extends AppCompatActivity {
             return null;
         }
         @Override
-        protected void onPostExecute(Void result)
-        {
+        protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            Toast.makeText(getBaseContext(), "Hello", Toast.LENGTH_LONG).show();
-            Gson gson = new Gson();
-            MyCategory mycat = new MyCategory();
-            mycat.firstName = "Roman";
-            mycat.lastName = "Asadov";
-            mycat.email = "roma@mail.ru";
-            mycat.id = 1;
-            String json = gson.toJson(mycat);
-            MyCategory cat = gson.fromJson(json, MyCategory.class);
-            cityField.setText(conn.resultString);
+            if (this.result == 1) { // код, если мы отправляем запрос search
+                String res = conn.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
+                res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
+                res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был лишним
+                Intent intent = new Intent(getBaseContext(), Card_Search_View.class);
+                intent.putExtra("json", res);
+                startActivity(intent);
+            }else if(this.result == 0){
+
+            }
         }
     }
 }

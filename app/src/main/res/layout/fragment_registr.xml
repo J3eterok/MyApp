@@ -1,0 +1,223 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="co.example.user.myapp.Registr">
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="190dip"
+        android:layout_height="600dip"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        android:background="@drawable/eshemain"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView95"
+        android:layout_width="80dip"
+        android:layout_height="150dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_weight="1"
+        android:background="@drawable/eshetreug"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="320dip"
+        android:layout_height="450dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:layout_weight="1"
+        android:background="@drawable/eshesloi"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView612"
+        android:layout_width="256dip"
+        android:layout_height="60dip"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:background="@drawable/linotovvod"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView631"
+        android:layout_width="256dip"
+        android:layout_height="60dip"
+        android:layout_alignLeft="@+id/imageView614"
+        android:layout_alignStart="@+id/imageView614"
+        android:layout_below="@+id/imageView614"
+        android:layout_weight="1"
+        android:background="@drawable/linotovvod"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView614"
+        android:layout_width="256dip"
+        android:layout_height="60dip"
+        android:layout_alignLeft="@+id/imageView615"
+        android:layout_alignStart="@+id/imageView615"
+        android:layout_below="@+id/imageView615"
+        android:layout_weight="1"
+        android:background="@drawable/linotovvod"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView615"
+        android:layout_width="256dip"
+        android:layout_height="60dip"
+        android:layout_alignLeft="@+id/imageView61"
+        android:layout_alignStart="@+id/imageView61"
+        android:layout_below="@+id/editText20"
+        android:layout_weight="1"
+        android:background="@drawable/linotovvod"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView61"
+        android:layout_width="256dip"
+        android:layout_height="60dip"
+        android:layout_alignLeft="@+id/imageView612"
+        android:layout_alignStart="@+id/imageView612"
+        android:layout_below="@+id/editText10"
+        android:layout_weight="1"
+        android:background="@drawable/linotovvod"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignTop="@+id/imageView6"
+        android:layout_marginTop="44dp"
+        android:text="password" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText20"
+        android:layout_below="@+id/editText10"
+        android:text="email" />
+
+
+    <EditText
+        android:id="@+id/editText20"
+        android:layout_width="250dip"
+        android:layout_height="40dip"
+        android:layout_alignLeft="@+id/editText10"
+        android:layout_below="@+id/textView2"
+        android:ems="10"
+        android:text="">
+
+    </EditText>
+
+    <ImageView
+        android:id="@+id/imageView57"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignEnd="@+id/imageButton8"
+        android:layout_alignRight="@+id/imageButton8"
+        android:layout_alignTop="@+id/imageView6"
+        android:layout_weight="1"
+        android:background="@drawable/tri"
+        android:scaleType="centerCrop" />
+
+
+
+    <EditText
+        android:id="@+id/editText10"
+        android:layout_width="250dip"
+        android:layout_height="40dip"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:text="">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText20"
+        android:layout_below="@+id/editText20"
+        android:text="city" />
+
+    <EditText
+        android:id="@+id/editText30"
+        android:layout_width="250dip"
+        android:layout_height="40dip"
+        android:layout_alignLeft="@+id/editText20"
+        android:layout_below="@+id/textView"
+        android:ems="10"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText40"
+        android:layout_below="@+id/editText30"
+        android:text="firstName" />
+
+    <EditText
+        android:id="@+id/editText40"
+        android:layout_width="250dip"
+        android:layout_height="40dip"
+        android:layout_alignLeft="@+id/editText30"
+        android:layout_below="@+id/textView4"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText40"
+        android:layout_below="@+id/editText40"
+        android:text="lastName" />
+
+    <EditText
+        android:id="@+id/editText50"
+        android:layout_width="250dip"
+        android:layout_height="40dip"
+        android:layout_alignLeft="@+id/editText40"
+        android:layout_below="@+id/textView5"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="200dip"
+        android:layout_height="80dip"
+        android:layout_below="@+id/editText50"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/enterbut"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/imageButton8"
+        android:layout_alignStart="@+id/imageButton8"
+        android:layout_alignTop="@+id/imageButton8"
+        android:text="       Send"
+        android:textSize="35sp" />
+
+</RelativeLayout>
