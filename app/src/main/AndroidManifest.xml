@@ -23,7 +23,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-<<<<<<< HEAD
         <activity android:name=".EventView_Creator" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -38,19 +37,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Card_Search_View"/>
-=======
-
-        <activity android:name=".EventView_Creator" />
-        <activity android:name=".EventView_Subscriber" />
-        <activity android:name=".Search" />
-        <activity android:name=".Card_Search_View" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RecyclerViewActivity" />
-        <activity android:name=".Card" />
-        <activity android:name=".TestEvent" />
-        <activity android:name=".RVAdapter" />
         <activity android:name=".FutureEvent"></activity>
->>>>>>> origin
     </application>
 
 </manifest>
