@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="co.example.user.myapp.Login">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="190dip"
+        android:layout_height="600dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+        android:background="@drawable/main"
+        android:scaleType="centerCrop" />
+
+
+    <ImageView
+        android:layout_width="80dip"
+        android:layout_height="150dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+        android:background="@drawable/sloi"
+        android:scaleType="centerCrop"
+        android:id="@+id/imageView4" />
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="320dip"
+        android:layout_height="250dip"
+        android:layout_above="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:layout_weight="1"
+        android:background="@drawable/menu"
+        android:scaleType="centerCrop" />
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_above="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView4"
+        android:layout_toRightOf="@+id/imageView4"
+        android:layout_weight="1"
+        android:background="@drawable/tri"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="256dip"
+        android:layout_height="60dip"
+        android:layout_alignTop="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:background="@drawable/linotovvod"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:layout_width="256dip"
+        android:layout_height="60dip"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/imageView2"
+        android:layout_weight="1"
+        android:background="@drawable/linotovvod"
+        android:scaleType="centerCrop"
+        android:id="@+id/imageView3" />
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignStart="@+id/editText1"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_marginTop="29dp"
+        android:text="email" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_below="@+id/editText1"
+        android:text="password" />
+
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="250dip"
+        android:layout_height="40dip"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/textView2"
+        android:ems="10"
+        android:text=" "
+        >
+
+    </EditText>
+
+
+
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="250dip"
+        android:layout_height="40dip"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:text=" ">
+
+    </EditText>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="200dip"
+        android:layout_height="80dip"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/enterbut"
+        android:text="Send" />
+
+</RelativeLayout>

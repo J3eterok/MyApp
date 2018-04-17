@@ -63,27 +63,27 @@ public class Search extends AppCompatActivity {
             }
         }
         final Gson gson = new Gson();
-        if(sender.resultString != null) {
-            String res = sender.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
-            res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
-            res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был
-            MyCategory[] cat = gson.fromJson(res, MyCategory[].class);
-            int i = 0;
-            data = new String[cat.length];
-            for (MyCategory myCat: cat) {
-                data[i] = myCat.name;
-                i++;
-            }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            Spinner spinner = (Spinner) findViewById(R.id.spinner);
-            spinner.setAdapter(adapter);
-            // заголовок
-            spinner.setPrompt("Title");
-            // выделяем элемент
-//            spinner.setSelection(4);
-        }
+//        if(sender.resultString != null) {
+//            String res = sender.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
+//            res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
+//            res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был
+//            MyCategory[] cat = gson.fromJson(res, MyCategory[].class);
+//            int i = 0;
+//            data = new String[cat.length];
+//            for (MyCategory myCat: cat) {
+//                data[i] = myCat.name;
+//                i++;
+//            }
+//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//            Spinner spinner = (Spinner) findViewById(R.id.spinner);
+//            spinner.setAdapter(adapter);
+//            // заголовок
+//            spinner.setPrompt("Title");
+//            // выделяем элемент
+////            spinner.setSelection(4);
+//        }
 
         View.OnClickListener search = new View.OnClickListener(){
             @Override

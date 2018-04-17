@@ -63,7 +63,7 @@ public class EventView_Creator extends AppCompatActivity {
         Comment = findViewById(R.id.Comment);
         Edit.setOnClickListener(EditEvent);
         Category = findViewById(R.id.Category);
-        Address = findViewById(R.id.Adress);
+//        Address = findViewById(R.id.Adress);
         Date = findViewById(R.id.Date);
         Name.setText(receivedEvent.name);
         Comment.setText(receivedEvent.comment);
