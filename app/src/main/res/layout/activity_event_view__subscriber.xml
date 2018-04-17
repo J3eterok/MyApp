@@ -4,183 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/angle"
     tools:context=".EventView_Subscriber">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="368dp"
-        android:layout_height="464dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/comment_header"
+            android:textSize="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Date"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Комментарий"
+            android:textAlignment="center"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/name_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Название"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/Name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="TextView"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/name_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:text="Название"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/Category_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Категория"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/name_header"
+            android:layout_weight="1"
+            android:background="@drawable/name"
+            android:enabled="false"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/Category"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="TextView"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/Category_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Name"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="Категория"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/Date_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Дата"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/Category"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Category_header"
+            android:layout_weight="1"
+            android:background="@drawable/name"
+            android:enabled="false"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/Date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:enabled="false"
-                android:text="TextView"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/Date_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Category"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="Дата"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Date_header"
+            android:layout_weight="1"
+            android:background="@drawable/name"
+            android:enabled="false"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/Comment"
+            android:background="@drawable/comment"
             android:layout_width="match_parent"
-            android:layout_height="151dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/comment_header"
             android:ems="10"
             android:enabled="false"
             android:gravity="start"
             android:inputType="textMultiLine"
             android:text="TextView" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/Members"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="37dp"
+            android:layout_above="@+id/SignUp"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:onClick="ViewMembers"
+            android:text="Открыть список участников" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <Button
+            android:id="@+id/SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:onClick="SignUp"
+            android:text="Подписаться"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-                <Button
-                    android:id="@+id/Members"
-                    android:layout_width="match_parent"
-                    android:layout_height="37dp"
-                    android:layout_weight="1"
-                    android:onClick="ViewMembers"
-                    android:text="Открыть список участников" />
+    </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/Creator_header"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Организатор"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <ImageButton
-                        android:id="@+id/imageButton"
-                        android:layout_width="131dp"
-                        android:layout_height="53dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@android:drawable/sym_def_app_icon" />
-
-                    <TextView
-                        android:id="@+id/Creator"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:padding="10sp"
-                        android:text="User"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/SignUp"
-        android:layout_width="371dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:onClick="SignUp"
-        android:text="Подписаться"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>
