@@ -13,10 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Offer">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -25,18 +21,21 @@
         <activity android:name=".EventView_Creator" >
         </activity>
         <activity android:name=".EventView_Subscriber" />
-        <activity android:name=".Search">
-        </activity>
-        <activity android:name=".Card_Search_View"/>
-        <activity android:name=".MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".Search" />
+        <activity android:name=".Card_Search_View" />
+        <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".RecyclerViewActivity" />
         <activity android:name=".TestEvent" />
-        <activity android:name=".FutureEvent"></activity>
+        <activity android:name=".FutureEvent" />
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
