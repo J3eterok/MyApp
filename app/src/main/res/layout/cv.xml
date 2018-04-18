@@ -64,8 +64,9 @@
                 android:id="@+id/eventId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/eventCategory"
+                android:layout_alignBottom="@+id/eventCategory"
                 android:layout_alignEnd="@+id/eventTime"
-                android:layout_alignParentBottom="true"
                 android:text="TextView" />
 
         </RelativeLayout>

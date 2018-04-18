@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -45,6 +46,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         String currentDateandTime = sdf.format(new Date());
         GetMyEvents sendObj = new GetMyEvents();
         sendObj.id = getIntent().getIntExtra("userId", 1);
+        LoggedUser.Id = sendObj.id;
         sendObj.datetime = currentDateandTime;
         Gson gson = new Gson();
         sender.result = 0;
@@ -78,17 +80,17 @@ public class RecyclerViewActivity extends AppCompatActivity {
     }
     private void initializeData(){
         cards = new ArrayList<>();
-        for(MyEvent event:myEvents)
-        {
-            String id = ""+event.id;
-            cards.add(new Card(id,event.name, event.datetime, event.city, event.category.toString()));
+        for(MyEvent event:myEvents) {
+            String id = "" + event.id;
+            cards.add(new Card(id, event.name, event.datetime, event.city, event.category.toString()));
         }
     }
 
-    public void ShowEvent(View view) //Метод открытия карточки
+    public void ShowMyEvent(View view) //Метод открытия карточки
     {
-        Intent intent = new Intent(this, EventView_Subscriber.class);
-        TextView eventId = view.findViewById(R.id.eventId);
+        Intent intent = new Intent(getBaseContext(), EventView_Subscriber.class);
+        View parentView = (View)view.getParent();
+        TextView eventId = (TextView)parentView.findViewById(R.id.eventId);
         intent.putExtra("eventId", eventId.getText().toString());
         String res = eventId.getText().toString();
         startActivity(intent);
