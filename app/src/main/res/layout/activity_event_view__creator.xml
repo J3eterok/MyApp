@@ -18,6 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:layout_above="@+id/Category_header"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bar" />
+
         <TextView
             android:id="@+id/name_header"
             android:layout_width="match_parent"
@@ -26,14 +34,18 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:text="Название"
             android:textAlignment="center"
             android:textStyle="bold" />
 
+
+
         <EditText
             android:id="@+id/Name"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/name_header"
             android:layout_weight="1"
@@ -41,7 +53,7 @@
             android:enabled="false"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/cardview_light_background" />
 
         <TextView
             android:id="@+id/Category_header"
@@ -51,22 +63,23 @@
             android:layout_below="@+id/Name"
             android:layout_marginTop="6dp"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:text="Категория"
             android:textAlignment="center"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Category"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="35dp"
-            android:layout_alignEnd="@+id/Edit"
+            android:layout_alignStart="@+id/Date"
             android:layout_below="@+id/Category_header"
             android:layout_weight="1"
-            android:background="@drawable/name"
+            android:background="@drawable/crfield"
             android:enabled="false"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/cardview_light_background" />
 
         <TextView
             android:id="@+id/Date_header"
@@ -76,21 +89,23 @@
             android:layout_below="@+id/Category"
             android:layout_marginTop="6dp"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:text="Дата"
             android:textAlignment="center"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Date"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/Date_header"
             android:layout_weight="1"
-            android:background="@drawable/name"
+            android:background="@drawable/crfield"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/cardview_light_background" />
 
         <TextView
             android:id="@+id/Comment_header"
@@ -101,13 +116,15 @@
             android:layout_marginTop="14dp"
             android:layout_weight="1"
             android:text="Комментарий"
+            android:textColor="@color/cardview_light_background"
             android:textAlignment="center"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/Comment"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="200dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/Comment_header"
             android:layout_marginTop="6dp"
@@ -117,12 +134,13 @@
             android:gravity="start"
             android:inputType="textMultiLine"
             android:text="TextView"
-            android:textColor="@color/black"
+            android:textColor="@color/cardview_light_background"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="297dp" />
 
         <Button
             android:id="@+id/Members"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -130,27 +148,32 @@
             android:layout_weight="1"
             android:onClick="ViewMembers"
             android:text="Открыть список участников"
+            android:textColor="@color/cardview_light_background"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="462dp" />
 
         <Button
             android:id="@+id/Delete"
+            style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
             android:layout_width="143dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/Members"
             android:layout_weight="1"
             android:onClick="Delete"
-            android:text="Удалить" />
+            android:text="    Удалить"
+            android:textColor="@color/cardview_light_background" />
 
         <Button
             android:id="@+id/Edit"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/Members"
             android:layout_weight="1"
-            android:text="Редактировать" />
+            android:text="Редактировать    "
+            android:textColor="@color/cardview_light_background" />
 
     </RelativeLayout>
 
