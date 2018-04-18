@@ -111,7 +111,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         }
 
         @Override
-        protected Void  doInBackground(Void... params) {
+        protected Void doInBackground(Void... params) {
             try {
 
                 String myURL = server;
@@ -121,7 +121,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 InputStream is = null;
 
 
-
                 try {
                     URL url = new URL(server);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -129,7 +128,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                     conn.setConnectTimeout(15000);
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Connection", "Keep-Alive");
-                    conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+                    conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                     conn.setRequestProperty("Content-Length", "" + Integer.toString(parammetrs.getBytes().length));
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
@@ -148,7 +147,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                     os.close();
                     data = null;
                     conn.connect();
-                    int responseCode= conn.getResponseCode();
+                    int responseCode = conn.getResponseCode();
 
 
                     // передаем ответ сервер
@@ -164,7 +163,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
                         int bytesRead;
 
 
-
                         while ((bytesRead = is.read(buffer)) != -1) {
                             baos.write(buffer, 0, bytesRead);
                         }
@@ -172,7 +170,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
                         data = baos.toByteArray();
                         resultString = new String(data, "UTF-8");  // сохраняем в переменную ответ сервера, у нас "OK"
-
 
 
                     } else {
@@ -195,13 +192,45 @@ public class RecyclerViewActivity extends AppCompatActivity {
             }
             return null;
         }
+
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             if (this.result == 1) {
-            }else if(this.result == 0){
+            } else if (this.result == 0) {
 
             }
         }
     }
+    public void goBar (View view) {
+
+        switch (view.getId()) {
+            case R.id.imageButton9:
+                Intent SecAct = new Intent(this, RecyclerViewActivity.class);
+                startActivity(SecAct);
+
+
+                break;
+            case R.id.imageButton11:
+                Intent ThAct = new Intent(this, Search.class);
+                startActivity(ThAct);
+                break;
+
+            case R.id.imageButton8:
+                Intent fourAct = new Intent(this, Offer.class);
+                startActivity(fourAct);
+                break;
+
+            case R.id.imageButton3:
+                Intent FiveAct = new Intent(this, FutureEvent.class);
+                startActivity(FiveAct);
+                break;
+
+            case R.id.imageButton5:
+                Intent SecAc = new Intent(this, RecyclerViewActivity.class);
+                startActivity(SecAc);
+
+        }
+    }
 }
+

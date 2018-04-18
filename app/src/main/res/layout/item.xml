@@ -54,18 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/text_category"
-            android:layout_alignStart="@+id/text_category"
-            android:textColor="@android:color/background_light"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/text_category"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/eventId"
-            android:layout_alignStart="@+id/text_name"
-            android:layout_marginBottom="12dp"
-            android:layout_marginStart="16dp"
+            android:layout_alignParentEnd="true"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 
@@ -75,6 +64,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:background="@android:color/transparent"
+            android:id="@+id/button2"
             android:onClick="ShowMyEvent" />
 
         <TextView
@@ -86,6 +76,15 @@
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="15dp"
             android:text="TextView" />
+
+        <TextView
+            android:id="@+id/text_category"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/eventId"
+            android:layout_alignStart="@+id/text_name"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
     </RelativeLayout>
 
 

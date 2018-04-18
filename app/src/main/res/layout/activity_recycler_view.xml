@@ -18,7 +18,7 @@
         android:layout_marginEnd="11dp"
         android:layout_weight="1"
         android:background="@drawable/myevents"
-        android:onClick="toMy" />
+        android:onClick="goBar"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -29,7 +29,8 @@
         android:layout_marginStart="43dp"
         android:layout_toEndOf="@+id/imageButton5"
         android:layout_toRightOf="@+id/imageButton5"
-        android:background="@drawable/futureivents" />
+        android:background="@drawable/futureivents"
+        android:onClick="goBar"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -49,7 +50,7 @@
         android:layout_marginStart="16dp"
         android:layout_weight="1"
         android:background="@drawable/add"
-        android:onClick="addEvent"/>
+        android:onClick="goBar"/>
 
     <ImageButton
         android:id="@+id/imageButton9"
@@ -60,7 +61,7 @@
         android:layout_marginStart="20dp"
         android:layout_weight="1"
         android:background="@drawable/home"
-        android:onClick="goHome"/>
+        android:onClick="goBar"/>
 
     <ImageButton
         android:id="@+id/imageButton10"
@@ -71,7 +72,7 @@
         android:layout_marginEnd="20dp"
         android:layout_weight="1"
         android:background="@drawable/prof"
-        android:onClick="goProfile"/>
+        android:onClick="goBar"/>
 
     <ImageButton
         android:id="@+id/imageButton11"
@@ -82,7 +83,7 @@
         android:layout_toEndOf="@+id/imageButton9"
         android:layout_weight="1"
         android:background="@drawable/seeearch"
-        android:onClick="goSearch"/>
+        android:onClick="goBar"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_height="match_parent"

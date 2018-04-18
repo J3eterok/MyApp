@@ -112,4 +112,37 @@ public class Card_Search_View extends AppCompatActivity {
         String res = eventId.getText().toString();
         startActivity(intent);
     }
+
+    public void goBarto (View view) {
+
+        switch (view.getId()) {
+            case R.id.imageButton9:
+                Intent SecAct = new Intent(this, RecyclerViewActivity.class);
+                startActivity(SecAct);
+
+
+                break;
+            case R.id.imageButton11:
+                Intent ThAct = new Intent(this, Search.class);
+                startActivity(ThAct);
+                break;
+
+            case R.id.imageButton8:
+                Intent fourAct = new Intent(this, Offer.class);
+                startActivity(fourAct);
+                break;
+
+            case R.id.imageButton3:
+                Intent FiveAct = new Intent(this, FutureEvent.class);
+                startActivity(FiveAct);
+                break;
+
+            case R.id.imageButton5:
+                Intent SecAc = new Intent(this, RecyclerViewActivity.class);
+                startActivity(SecAc);
+
+        }
+
+
+    }
 }
