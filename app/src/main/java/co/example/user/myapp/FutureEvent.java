@@ -27,14 +27,14 @@ public class FutureEvent extends AppCompatActivity {
 
         //парсинг для future event
         cards = new ArrayList<>();
-        cards.add(new Card("Hockey", "27.11.1998", "Kazan", "Sport"));
-        cards.add(new Card("Shashlyki", "23.05.2013", "Forest", "Relax"));
-        cards.add(new Card("Shopping", "17.03.2025", "Moskow", "Relax"));
-        cards.add(new Card("Reading", "06.06.2006","Hell", "Other"));
-        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
-        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
-        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
-        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
+//        cards.add(new Card("Hockey", "27.11.1998", "Kazan", "Sport"));
+//        cards.add(new Card("Shashlyki", "23.05.2013", "Forest", "Relax"));
+//        cards.add(new Card("Shopping", "17.03.2025", "Moskow", "Relax"));
+//        cards.add(new Card("Reading", "06.06.2006","Hell", "Other"));
+//        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
+//        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
+//        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
+//        cards.add(new Card("Swimming", "23,08,2008", "Bitch", "Sport"));
     }
 
     private void initializeAdapter(){

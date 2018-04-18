@@ -20,6 +20,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         TextView cardDate;
         TextView cardPlace;
         TextView cardCategory;
+        TextView eventId;
 
         CardViewHolder(View itemView) {
             super(itemView);
@@ -28,6 +29,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
             cardDate = (TextView)itemView.findViewById(R.id.text_date);
             cardPlace = (TextView)itemView.findViewById(R.id.text_place);
             cardCategory = (TextView)itemView.findViewById(R.id.text_category);
+            eventId = (TextView)itemView.findViewById(R.id.eventId);
         }
     }
 
@@ -53,6 +55,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         cardViewHolder.cardDate.setText(cards.get(i).date);
         cardViewHolder.cardPlace.setText(cards.get(i).place);
         cardViewHolder.cardCategory.setText(cards.get(i).category);
+        cardViewHolder.eventId.setText(cards.get(i).id);
 
     }
 

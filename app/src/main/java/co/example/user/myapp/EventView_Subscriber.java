@@ -52,11 +52,11 @@ public class EventView_Subscriber extends AppCompatActivity {
         Name = (TextView)findViewById(R.id.Name);
         Category = (TextView)findViewById(R.id.Category);
         Date = (TextView)findViewById(R.id.Date);
-        Creator = (TextView)findViewById(R.id.Creator);
+        //Creator = (TextView)findViewById(R.id.Creator); зачем ты это удалил, Максим?
         Name.setText(event.name);
         Category.setText(event.category.toString());
         Date.setText(event.datetime);
-        Creator.setText(event.creator.toString());
+        //Creator.setText(event.creator.toString()); я вот совсем не пойму
     }
 
     public void ViewMembers(View view)
