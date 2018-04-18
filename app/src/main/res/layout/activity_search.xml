@@ -98,20 +98,23 @@
         android:layout_height="45dip"
         android:layout_alignStart="@+id/textView3"
         android:layout_below="@+id/textView3"
-        android:id="@+id/editText2" />
+        android:id="@+id/editText2"
+        android:textColor="@color/cardview_light_background"/>
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="300dip"
         android:layout_height="45dip"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/cardview_light_background"/>
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="300dip"
         android:layout_height="45dip"
         android:layout_alignStart="@+id/editText2"
+        android:textColor="@color/cardview_light_background"
         android:layout_below="@+id/editText2"
         android:layout_marginTop="63dp" />
 
