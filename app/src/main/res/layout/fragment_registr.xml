@@ -8,10 +8,9 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="190dip"
-        android:layout_height="600dip"
+        android:layout_height="700dip"
+        android:layout_alignBottom="@+id/imageView95"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:layout_weight="1"
         android:background="@drawable/eshemain"
         android:scaleType="centerCrop" />
