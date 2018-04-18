@@ -27,7 +27,7 @@
         android:layout_marginStart="33dp"
         android:layout_weight="1"
         android:background="@drawable/myevents"
-        android:onClick="toBare"/>
+        android:onClick="goBare"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -39,7 +39,7 @@
         android:layout_toEndOf="@+id/imageButton5"
         android:layout_toRightOf="@+id/imageButton5"
         android:background="@drawable/futureivents"
-        android:onClick="toBare"/>
+        android:onClick="goBare"/>
     <ImageButton
         android:id="@+id/imageButton8"
         android:layout_width="45dip"

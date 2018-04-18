@@ -73,8 +73,15 @@ public class Login extends Fragment {
                 json = json.replace("\\\"", "\"");
                 json = json.replace("}\"}","}");
                 UserId user;
-                 user = gson.fromJson(json, UserId.class);//bcghавить, написать класс юзер
-                userId = user.id;
+                try {
+                    user = gson.fromJson(json, UserId.class);//bcghавить, написать класс юзер
+                    userId = user.id;
+                }catch(Exception e)
+                {
+                    Toast.makeText(getContext(), "Неверные логин или пароль!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                LoggedUser.Id = userId;
                 Intent intent = new Intent(v.getContext(), RecyclerViewActivity.class);
                 intent.putExtra("userId", userId);
                 startActivity(intent);

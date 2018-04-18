@@ -28,7 +28,7 @@ import java.util.Locale;
 
 public class Offer extends AppCompatActivity {
 
-    private String[] Categories = {"Спорт", "Отдых", "Оккультизм"};//Массив категорий выпадающего списка
+    private String[] Categories = {};//Массив категорий выпадающего списка
     private EditText Name, City, Comment;
     private TextView Date;
 
@@ -45,28 +45,47 @@ public class Offer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer);
+        SendData sender = new SendData();
+        sender.result = 0; // указываем сендеру, что делаем запрос категорий
+        sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.getCategories={}";
+        sender.execute();
+        while (sender.resultString == null) {
+            try {
+                wait(1);
+            } catch (Exception e) {
 
-        // Создание выпадающего списка с категориями
-        ArrayAdapter<String> CategoriesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Categories);
-        spCategories = findViewById(R.id.Category);
+            }
+        }
+        Gson gson = new Gson();
+        if (sender.resultString != null) {
+            String res = sender.resultString.replace("\\\"", "\"");//тут убираем неправильные кавычки вида: \n
+            res = res.replace("{\"response\":\"[{", "[{"); //убираем лишнее слово response
+            res = res.replace("}]\"}", "}]"); // меняем конец ответа, чтобы тоже не был
+            MyCategory[] cat = gson.fromJson(res, MyCategory[].class);
+            int i = 0;
+            Categories = new String[cat.length];
+            for (MyCategory myCat : cat) {
+                Categories[i] = myCat.name;
+                i++;
+            }
+            // Создание выпадающего списка с категориями
+            ArrayAdapter<String> CategoriesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Categories);
+            spCategories = findViewById(R.id.Category);
 
-        CategoriesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);// Создание адаптера
+            CategoriesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);// Создание адаптера
 
-        spCategories.setAdapter(CategoriesAdapter);// Установка адаптера
+            spCategories.setAdapter(CategoriesAdapter);// Установка адаптера
 
 
-        // Диалог с выбором времени и даты
-        tvDate = findViewById(R.id.Date);
+            // Диалог с выбором времени и даты
+            tvDate = findViewById(R.id.Date);
 
-        // Дефолтные инпуты
-        Name = findViewById(R.id.Name);
-        City = findViewById(R.id.City);
-        Comment = findViewById(R.id.Comment);
-        Date = findViewById(R.id.Date);
-
-        //Запуск окна с карточками для отладки(после работы убрать)
-        Intent intent = new Intent(this, Card_Search_View.class);
-        startActivity(intent);
+            // Дефолтные инпуты
+            Name = findViewById(R.id.Name);
+            City = findViewById(R.id.City);
+            Comment = findViewById(R.id.comment);
+            Date = findViewById(R.id.Date);
+        }
     }
 
     public void onclickDate(View view) {
@@ -89,7 +108,7 @@ public class Offer extends AppCompatActivity {
             myYear = year;
             myMonth = monthOfYear;
             myDay = dayOfMonth;
-            tvDate.setText(myDay + "/" + myMonth + "/" + myYear);
+            tvDate.setText(myDay + "-" + (myMonth+1) + "-" + myYear);
         }
     };
 
@@ -104,24 +123,21 @@ public class Offer extends AppCompatActivity {
         /*ToDo: Отправление запроса на сервер с проверкой введенных данных*/
 
         // Переход на страницу с созданным мероприятием(Вид от создателя)
-        Intent intent = new Intent(this, EventView_Creator.class);
-        startActivity(intent);
         MyEvent event = new MyEvent();
         event.city = City.getText().toString();
-        event.comment = "MyComment";
-        event.name = Name.getText().toString();
-        event.creator = "1";
+        event.comment = Comment.getText().toString().replace(" ", "%20");
+        event.name = Name.getText().toString().replace(" ", "%20");
+        event.creator = LoggedUser.Id;
         event.coord = "125.125";
         event.members = new String[]{};
-        event.datetime = myDay + "/" + myMonth + "/" + myYear;
-        event.category = "1";
+        event.datetime = myDay + "-" + (myMonth+1) + "-" + myYear;
+        event.category = spCategories.getSelectedItemId()+1;
         Gson gson = new Gson();
         String json = gson.toJson(event);
         SendData sender = new SendData();
+        sender.result = 1;
         sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.createEvent="+json;
         sender.execute();
-       // Intent intent = new Intent(this, EventView_Creator.class);
-        //startActivity(intent);
     }
 
     class SendData extends AsyncTask<Void, Void, Void> {
@@ -224,7 +240,12 @@ public class Offer extends AppCompatActivity {
         protected void onPostExecute(Void result)
         {
             super.onPostExecute(result);
-            Toast.makeText(getBaseContext(), "Мероприятие создано.", Toast.LENGTH_SHORT).show();
+            if(this.result != 0)
+            {
+                Toast.makeText(getBaseContext(), "Мероприятие создано.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getBaseContext(), RecyclerViewActivity.class);
+                startActivity(intent);
+            }
         }
     }
 }

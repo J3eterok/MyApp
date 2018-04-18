@@ -89,12 +89,19 @@
         android:layout_alignStart="@+id/spinner"
         android:text="Категория" />
 
-    <EditText
+    <TextView
         android:layout_width="300dip"
         android:layout_height="45dip"
         android:layout_alignStart="@+id/textView3"
         android:layout_below="@+id/textView3"
-        android:id="@+id/editText2" />
+        android:id="@+id/editText2"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:onClick="onclickDate"
+        android:text="Выберите дату"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
 
     <EditText
         android:id="@+id/editText"

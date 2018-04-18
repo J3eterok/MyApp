@@ -132,15 +132,6 @@ public class Card_Search_View extends AppCompatActivity {
                 startActivity(fourAct);
                 break;
 
-            case R.id.imageButton3:
-                Intent FiveAct = new Intent(this, FutureEvent.class);
-                startActivity(FiveAct);
-                break;
-
-            case R.id.imageButton5:
-                Intent SecAc = new Intent(this, RecyclerViewActivity.class);
-                startActivity(SecAc);
-
         }
 
 

@@ -4,15 +4,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
-import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -45,8 +39,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
         String currentDateandTime = sdf.format(new Date());
         GetMyEvents sendObj = new GetMyEvents();
-        sendObj.id = getIntent().getIntExtra("userId", 1);
-        LoggedUser.Id = sendObj.id;
+       sendObj.id = LoggedUser.Id;
+        //LoggedUser.Id = sendObj.id;
         sendObj.datetime = currentDateandTime;
         Gson gson = new Gson();
         sender.result = 0;
@@ -75,6 +69,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
+        LoggedUser.isFuture = 0;
         initializeData();
         initializeAdapter();
     }
@@ -88,12 +83,22 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
     public void ShowMyEvent(View view) //Метод открытия карточки
     {
-        Intent intent = new Intent(getBaseContext(), EventView_Subscriber.class);
-        View parentView = (View)view.getParent();
-        TextView eventId = (TextView)parentView.findViewById(R.id.eventId);
-        intent.putExtra("eventId", eventId.getText().toString());
-        String res = eventId.getText().toString();
-        startActivity(intent);
+        if(LoggedUser.isFuture == 0) {
+            Intent intent = new Intent(getBaseContext(), EventView_Creator.class);
+            View parentView = (View) view.getParent();
+            TextView eventId = (TextView) parentView.findViewById(R.id.eventId);
+            intent.putExtra("eventId", eventId.getText().toString());
+            String res = eventId.getText().toString();
+            startActivity(intent);
+        }else if(LoggedUser.isFuture == 1)
+        {
+            Intent intent = new Intent(getBaseContext(), EventView_Subscriber.class);
+            View parentView = (View) view.getParent();
+            TextView eventId = (TextView) parentView.findViewById(R.id.eventId);
+            intent.putExtra("eventId", eventId.getText().toString());
+            String res = eventId.getText().toString();
+            startActivity(intent);
+        }
     }
     private void initializeAdapter(){
         RVAdapter adapter = new RVAdapter(cards);
@@ -217,8 +222,10 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 break;
 
             case R.id.imageButton8:
-                Intent fourAct = new Intent(this, Offer.class);
-                startActivity(fourAct);
+            {
+                Intent addInt = new Intent(this, Offer.class);
+                startActivity(addInt);
+            }
                 break;
 
             case R.id.imageButton3:

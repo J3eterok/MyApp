@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import org.w3c.dom.Text;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,6 +25,7 @@ public class EventView_Subscriber extends AppCompatActivity {
     private TextView Category;
     private TextView Date;
     private TextView Creator;
+    private TextView Comment;
     private int userId;
     private String eventId;
     @Override
@@ -52,10 +55,12 @@ public class EventView_Subscriber extends AppCompatActivity {
         Name = (TextView)findViewById(R.id.Name);
         Category = (TextView)findViewById(R.id.Category);
         Date = (TextView)findViewById(R.id.Date);
+        Comment = (TextView)findViewById(R.id.Comment);
         //Creator = (TextView)findViewById(R.id.Creator); зачем ты это удалил, Максим?
         Name.setText(event.name);
         Category.setText(event.category.toString());
         Date.setText(event.datetime);
+        Comment.setText(event.comment);
         //Creator.setText(event.creator.toString()); я вот совсем не пойму
     }
 
@@ -65,14 +70,11 @@ public class EventView_Subscriber extends AppCompatActivity {
     }
 
     public void SignUp(View view) {
-        userId = getIntent().getIntExtra("userId", 1);
-        if (userId == -1) {
-            return;//пользователь не залогинен
-        }
+
         SendData sender = new SendData();
         sender.result = 1;
         sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.addMember={\"id\":\""
-                + userId + "\",\"eventId\":\"" + eventId + "\"}";
+                + LoggedUser.Id + "\",\"eventId\":\"" + eventId + "\"}";
         sender.execute();
         while (sender.resultString == null) {
             try{
@@ -82,6 +84,8 @@ public class EventView_Subscriber extends AppCompatActivity {
 
             }
         }
+        Intent intent = new Intent(getBaseContext(), RecyclerViewActivity.class);
+        startActivity(intent);
     }
     class SendData extends AsyncTask<Void, Void, Void> {
 

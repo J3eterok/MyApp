@@ -6,4 +6,5 @@ package co.example.user.myapp;
 
 public class LoggedUser {
     public static int Id;
+    public static int isFuture;
 }

@@ -33,13 +33,13 @@ public class EventView_Creator extends AppCompatActivity {
     EditText Address;
     private MyEvent receivedEvent = null;
     //ToDo: вместо eventId = 3 нужно передать параметр нажатого мероприятия
-    private int eventId = 1;
+    private String eventId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_view__creator);
-        //eventId = 1;//getIntent().getExtras("eventId");
+        eventId = getIntent().getStringExtra("eventId");
         SendData sender = new SendData();
         sender.result = 0;
         sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.getEvent={\"id\":\""+eventId+"\"}";
@@ -68,7 +68,7 @@ public class EventView_Creator extends AppCompatActivity {
         Name.setText(receivedEvent.name);
         Comment.setText(receivedEvent.comment);
         Category.setText(receivedEvent.category.toString());
-        Address.setText(receivedEvent.address);
+       // Address.setText(receivedEvent.address);
         Date.setText(receivedEvent.datetime);
     }
 
@@ -81,6 +81,8 @@ public class EventView_Creator extends AppCompatActivity {
         sender.result = 2;
         sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.deleteEvent={\"id\":\""+eventId+"\"}";
         sender.execute();
+        Intent intent = new Intent(getBaseContext(), RecyclerViewActivity.class);
+        startActivity(intent);
     }
 
     public void ViewMembers(View view)
@@ -126,6 +128,8 @@ public class EventView_Creator extends AppCompatActivity {
 
                 }
             }
+            Intent intent = new Intent(getBaseContext(), RecyclerViewActivity.class);
+            startActivity(intent);
         }
     };
     class SendData extends AsyncTask<Void, Void, Void> {

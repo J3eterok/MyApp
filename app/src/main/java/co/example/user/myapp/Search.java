@@ -1,6 +1,8 @@
 package co.example.user.myapp;
 
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -23,6 +26,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.concurrent.Executor;
 
 public class Search extends AppCompatActivity {
@@ -37,6 +42,12 @@ public class Search extends AppCompatActivity {
     EditText cityField;
     EditText dateField;
     SendData conn;
+    Calendar calendar = new GregorianCalendar();
+    private int DIALOG_DATE = 1;
+    private int myYear = calendar.get(Calendar.YEAR);
+    private int myMonth = calendar.get(Calendar.MONTH);
+    private int myDay = calendar.get(Calendar.DAY_OF_MONTH);
+    TextView tvDate;
 
     /** Called when the activity is first created. */
 
@@ -49,7 +60,8 @@ public class Search extends AppCompatActivity {
         tV= (TextView) findViewById(R.id.textView2);
         button = (ImageButton) findViewById(R.id.icon2);
         cityField = (EditText) findViewById(R.id.editText);
-        dateField = (EditText) findViewById(R.id.editText2);
+        //dateField = (EditText) findViewById(R.id.editText2);
+        tvDate = (TextView)findViewById(R.id.editText2);
         SendData sender = new SendData();
         sender.result = 0; // указываем сендеру, что делаем запрос категорий
         sender.server = "http://193.105.65.66:1080/~h2oop/?iteam.getCategories={}";
@@ -93,7 +105,7 @@ public class Search extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Введите Город.", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(dateField.getText().toString().equals("")){
+                if(tvDate.getText().toString().equals("")){
                     Toast.makeText(getBaseContext(), "Введите дату.", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -101,7 +113,7 @@ public class Search extends AppCompatActivity {
                 conn = new SendData();
                 conn.result = 1;
                 Gson gson = new Gson();
-                SearchEntity searchObj = new SearchEntity(cityField.getText().toString(), dateField.getText().toString(),
+                SearchEntity searchObj = new SearchEntity(cityField.getText().toString(), tvDate.getText().toString(),
                         (int)spinner.getSelectedItemId()+1);
                 String json = gson.toJson(searchObj);
                 conn.server = "http://193.105.65.66:1080/~h2oop/?iteam.search=" + json;
@@ -114,7 +126,29 @@ public class Search extends AppCompatActivity {
         };
         button.setOnClickListener(search);
     }
+    public void onclickDate(View view) {
+        showDialog(DIALOG_DATE);
+    }
 
+    // Метод для выбора даты и времени в форме диалога
+    protected Dialog onCreateDialog(int id) {
+        if (id == DIALOG_DATE) {
+            DatePickerDialog tpd = new DatePickerDialog(this, myCallBackDate, myYear, myMonth, myDay);
+            return tpd;
+        }
+        return super.onCreateDialog(id);
+    }
+
+    DatePickerDialog.OnDateSetListener myCallBackDate = new DatePickerDialog.OnDateSetListener() {
+
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            myYear = year;
+            myMonth = monthOfYear;
+            myDay = dayOfMonth;
+            tvDate.setText(myDay + "-" + (myMonth+1) + "-" + myYear);
+        }
+    };
     class SendData extends AsyncTask<Void, Void, Void> {
 
         String resultString = null;
