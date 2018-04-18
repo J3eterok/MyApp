@@ -6,8 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="8dp"
     >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/bar"
+        android:id="@+id/imageView" />
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -20,7 +27,7 @@
         android:layout_marginStart="33dp"
         android:layout_weight="1"
         android:background="@drawable/myevents"
-        android:onClick="toMy"/>
+        android:onClick="toBare"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -31,13 +38,58 @@
         android:layout_marginStart="43dp"
         android:layout_toEndOf="@+id/imageButton5"
         android:layout_toRightOf="@+id/imageButton5"
-        android:background="@drawable/futureivents" />
+        android:background="@drawable/futureivents"
+        android:onClick="toBare"/>
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageButton3"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/add"
+        android:onClick="goBare"/>
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/home"
+        android:onClick="goBare"/>
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/prof"
+        android:onClick="goBare"/>
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="45dp"
+        android:layout_toEndOf="@+id/imageButton9"
+        android:layout_weight="1"
+        android:background="@drawable/seeearch"
+        android:onClick="goBare"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/rv"
         android:layout_marginTop="60dp"
+        android:layout_marginBottom="50dp"
         >
 
     </android.support.v7.widget.RecyclerView>
