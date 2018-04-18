@@ -19,6 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:layout_above="@+id/Category_header"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bar" />
+
         <TextView
             android:id="@+id/comment_header"
             android:textSize="16dp"
@@ -28,6 +36,7 @@
             android:layout_below="@+id/Date"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:text="Комментарий"
             android:textAlignment="center"
             android:textStyle="bold" />
@@ -40,6 +49,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:text="Название"
             android:textAlignment="center"
             android:textSize="16sp"
@@ -47,16 +57,17 @@
 
         <TextView
             android:id="@+id/Name"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/name_header"
             android:layout_weight="1"
-            android:background="@drawable/name"
+            android:background="@drawable/mainmembers"
             android:enabled="false"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/cardview_light_background"
             android:textSize="20dp" />
 
         <TextView
@@ -67,6 +78,7 @@
             android:layout_below="@+id/Name"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:text="Категория"
             android:textAlignment="center"
             android:textSize="16sp"
@@ -74,16 +86,17 @@
 
         <TextView
             android:id="@+id/Category"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/Category_header"
             android:layout_weight="1"
-            android:background="@drawable/name"
+            android:background="@drawable/mainmembers"
             android:enabled="false"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/cardview_light_background"
             android:textSize="20dp" />
 
         <TextView
@@ -94,6 +107,7 @@
             android:layout_below="@+id/Category"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:text="Дата"
             android:textAlignment="center"
             android:textSize="16sp"
@@ -101,25 +115,27 @@
 
         <TextView
             android:id="@+id/Date"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="35dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/Date_header"
             android:layout_weight="1"
-            android:background="@drawable/name"
+            android:background="@drawable/mainmembers"
             android:enabled="false"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/cardview_light_background"
             android:textSize="20dp" />
 
         <TextView
             android:id="@+id/Comment"
-            android:background="@drawable/comment"
-            android:layout_width="match_parent"
-            android:textColor="@color/black"
+            android:background="@drawable/mainmembers"
+            android:textColor="@color/cardview_light_background"
             android:textSize="20dp"
+            android:layout_width="350dp"
             android:layout_height="200dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/comment_header"
             android:ems="10"
@@ -130,11 +146,13 @@
 
         <Button
             android:id="@+id/Members"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="37dp"
             android:layout_above="@+id/SignUp"
             android:layout_alignParentStart="true"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
             android:onClick="ViewMembers"
             android:text="Открыть список участников" />
 
@@ -145,6 +163,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
+            android:textColor="@color/cardview_light_background"
+            android:background="@drawable/bar"
             android:onClick="SignUp"
             android:text="Подписаться"
             app:layout_constraintBottom_toBottomOf="parent"

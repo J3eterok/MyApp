@@ -27,31 +27,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:id="@+id/relativeLayout5">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="1dp"
+                android:layout_above="@+id/Category_header"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bar" />
 
             <EditText
                 android:id="@+id/Name"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="350dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="3dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="start"
                 android:layout_weight="1"
-                android:background="@drawable/name"
-                android:hint="Название мероприятия..."
-                android:textColorHint="@color/black" />
+                android:textColor="@color/cardview_light_background"
+                android:background="@drawable/mainmembers"
+                android:hint=" Название мероприятия"
+                android:textColorHint="@color/cardview_light_background" />
 
             <EditText
                 android:id="@+id/City"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="40dp"
+                android:layout_marginLeft="9dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/Name"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="6dp"
                 android:layout_weight="1"
-                android:background="@drawable/place"
-                android:hint="Город..."
-                android:textColorHint="@color/black" />
+                android:background="@drawable/mainmembers"
+                android:hint=" Город"
+                android:textColorHint="@color/cardview_light_background" />
 
             <TextView
                 android:id="@+id/CategoryView"
@@ -66,54 +78,59 @@
                 android:paddingBottom="5sp"
                 android:text="Категория"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/cardview_light_background"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/Category"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="30dp"
+                android:layout_marginLeft="9dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/CategoryView"
                 android:layout_weight="1"
-                android:background="@drawable/category"
+                android:textColor="@color/cardview_light_background"
+                android:background="@drawable/mainmembers"
                 android:gravity="center"
                 android:spinnerMode="dialog"
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Date"
-                android:layout_width="match_parent"
-                android:layout_height="27sp"
+                android:layout_width="350dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="9dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/Category"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/date1"
+                android:background="@drawable/mainmembers"
                 android:fontFamily="@font/aldrich"
                 android:gravity="center"
                 android:onClick="onclickDate"
                 android:text="Выберите дату"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/cardview_light_background"
                 android:textSize="16sp" />
 
         </RelativeLayout>
 
         <EditText
             android:id="@+id/comment"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="200dp"
+            android:layout_marginLeft="9dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/relativeLayout5"
             android:layout_marginTop="13dp"
             android:layout_weight="1"
-            android:background="@drawable/comment"
+            android:textColor="@color/cardview_light_background"
+            android:background="@drawable/mainmembers"
             android:ems="10"
             android:gravity="start"
             android:hint="Добавьте описание (не менее 30 символов)"
             android:inputType="textMultiLine"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/cardview_light_background" />
 
         <Button
             android:id="@+id/button"
@@ -121,11 +138,10 @@
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/bar"
             android:onClick="Create"
             android:text="Создать"
-            android:textColorLink="@color/black" />
+            android:textColor="@color/cardview_light_background"/>
 
     </RelativeLayout>
 

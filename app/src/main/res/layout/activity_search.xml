@@ -36,8 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/icon"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/cardview_light_background"
         android:text="Найти"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 
     <ImageView
         android:layout_width="300dip"
@@ -70,6 +71,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/imageView"
         android:layout_marginTop="15dp"
+        android:textColor="@color/cardview_light_background"
         android:text="Город" />
 
     <TextView
@@ -79,7 +81,8 @@
         android:layout_alignStart="@+id/editText"
         android:layout_below="@+id/imageView"
         android:layout_marginTop="12dp"
-        android:text="Дата" />
+        android:textColor="@color/cardview_light_background"
+        android:text="" />
 
     <TextView
         android:id="@+id/textView4"
@@ -87,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/imageView2"
         android:layout_alignStart="@+id/spinner"
+        android:textColor="@color/cardview_light_background"
         android:text="Категория" />
 
     <TextView
@@ -100,21 +104,23 @@
         android:onClick="onclickDate"
         android:text="Выберите дату"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:textColor="@color/cardview_light_background"/>
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="300dip"
         android:layout_height="45dip"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/cardview_light_background"/>
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="300dip"
         android:layout_height="45dip"
         android:layout_alignStart="@+id/editText2"
+        android:textColor="@color/cardview_light_background"
         android:layout_below="@+id/editText2"
         android:layout_marginTop="63dp" />
 
