@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
+    android:paddingTop="8dp"
     >
     <ImageView
         android:layout_width="match_parent"
@@ -29,24 +29,28 @@
         android:background="@drawable/myevents"
         android:onClick="toBare"/>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="6dip"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/twomainbar" />
+
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="120dip"
-        android:layout_height="40dip"
+        android:layout_width="135dip"
+        android:layout_height="35dip"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="43dp"
-        android:layout_marginStart="43dp"
-        android:layout_toEndOf="@+id/imageButton5"
-        android:layout_toRightOf="@+id/imageButton5"
+        android:layout_toStartOf="@+id/imageButton10"
+        android:layout_marginRight="-25dp"
         android:background="@drawable/futureivents"
-        android:onClick="toBare"/>
+        android:onClick="toBare" />
     <ImageButton
         android:id="@+id/imageButton8"
         android:layout_width="45dip"
         android:layout_height="45dip"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/imageButton3"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="18dp"
         android:layout_weight="1"
         android:background="@drawable/add"
         android:onClick="goBare"/>
@@ -78,13 +82,14 @@
         android:layout_width="45dip"
         android:layout_height="45dip"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="50dp"
         android:layout_toEndOf="@+id/imageButton9"
         android:layout_weight="1"
         android:background="@drawable/seeearch"
         android:onClick="goBare"/>
 
     <android.support.v7.widget.RecyclerView
+        android:paddingLeft="8dp"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/rv"

@@ -21,7 +21,7 @@
         android:layout_width="45dip"
         android:layout_height="45dip"
         android:layout_alignBottom="@+id/imageView"
-        android:layout_marginEnd="67dp"
+        android:layout_marginEnd="48dp"
         android:layout_toStartOf="@+id/imageButton10"
         android:layout_weight="1"
         android:background="@drawable/add"
@@ -54,7 +54,7 @@
         android:layout_width="45dip"
         android:layout_height="45dip"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="50dp"
         android:layout_toEndOf="@+id/imageButton9"
         android:layout_weight="1"
         android:background="@drawable/seeearch"
@@ -65,6 +65,7 @@
         android:layout_height="match_parent"
         android:id="@+id/rv"
         android:layout_marginBottom="50dp"
+        android:paddingLeft="8dp"
         />
 
 </RelativeLayout>
